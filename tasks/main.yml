@@ -1,0 +1,12 @@
+- block:
+  - import_tasks: install.yml
+    tags:
+      - motion-install
+  - import_tasks: facts.yml
+    tags:
+      - motion-facts
+  - import_tasks: configure.yml
+    tags:
+      - motion-configure
+  tags:
+    - motion

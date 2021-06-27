@@ -1,0 +1,17 @@
+- name: Install motion (debian)
+  apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - v4l-utils
+    - motion
+  when:
+    - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Add `ansible_user` to video group
+  shell: 'addgroup {{ansible_user}} video'
+
+- name: Create motion config folder
+  file:
+    path: "/etc/motion"
+    state: directory

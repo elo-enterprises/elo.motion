@@ -1,0 +1,19 @@
+---
+motion_conf_file: /etc/motion/motion.conf
+motion_stream_port:
+base_motion_conf:
+  stream_quality: 98
+  webcontrol_port: 8080
+  stream_maxrate: 5
+  stream_localhost: off
+  webcontrol_localhost: off
+  output_pictures: off
+  framerate: 30
+  ffmpeg_video_codec: mpeg4
+  width: 600
+  height: 800
+  auto_brightness: off
+  contrast: 0
+  saturation: 0
+
+default_motion_conf: {}
