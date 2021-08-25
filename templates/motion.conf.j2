@@ -1,0 +1,15 @@
+##
+# Motion
+# Maintained by ansible @ elo.motion::configure
+# See also: https://github.com/elo-enterprises/elo.motion
+# https://motion-project.github.io/motion_config.html
+##
+
+# Shared by all cameras
+{% for key, value in motion.conf.items() %}
+{{key}} {{value}}
+{%endfor%}
+
+{% for cam_name in motion.cameras.keys() %}
+thread /etc/motion/{{cam_name}}.conf
+{%endfor%}

@@ -26,7 +26,7 @@
   #     {%endfor%}
   #   dest: "{{item}}"
   ansible.builtin.template:
-    src: "motion.conf.j2"
+    src: "templates/motion.conf.j2"
     # dest: "{{motion_conf_file}}"
     # validate: /usr/sbin/visudo -cf %s
     dest: "{{item}}"
