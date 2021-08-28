@@ -46,17 +46,18 @@
   import_role:
     name: elo.supercomposer
   vars:
-    supervisor_service: "motion"
-    supervisor_app_config: |-
-      # Help for motion CLI flags:
-      #   -n			Run in non-daemon mode.
-      #   -c config		Full path and filename of config file.
-      #   -d level		Log level (1-9) (EMG, ALR, CRT, ERR, WRN, NTC, INF, DBG, ALL). default: 6 / NTC.
-      #   -m			Disable motion detection at startup.
-      [program:motion]
-      command=motion -n -m -c /etc/motion/motion.conf
-      directory=/home/{{ansible_user}}
-      autostart=true
-      autorestart=true
-      user={{ansible_user}}
-      environment=HOME="/home/{{ansible_user}}",USER="{{ansible_user}}"
+    supercomposer:
+      service: "motion"
+      app_config: |-
+        # Help for motion CLI flags:
+        #   -n			Run in non-daemon mode.
+        #   -c config		Full path and filename of config file.
+        #   -d level		Log level (1-9) (EMG, ALR, CRT, ERR, WRN, NTC, INF, DBG, ALL). default: 6 / NTC.
+        #   -m			Disable motion detection at startup.
+        [program:motion]
+        command=motion -n -m -c /etc/motion/motion.conf
+        directory=/home/{{ansible_user}}
+        autostart=true
+        autorestart=true
+        user={{ansible_user}}
+        environment=HOME="/home/{{ansible_user}}",USER="{{ansible_user}}"
